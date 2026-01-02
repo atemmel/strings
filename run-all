@@ -3,8 +3,8 @@
 import fs
 
 assert (fs'has-program g++)
-assert (fs'has-program poop)
 assert (fs'has-program mkdir)
+assert (fs'has-program poop)
 
 mkdir -p build/
 
@@ -20,4 +20,15 @@ for cpp-file in $cpp-files {
 #TODO: "uppackning" hade gått hårt här
 #poop ...$arg-strs
 
-poop "./build/linear corpus-1 afternoon" "./build/boyer-moore corpus-1 afternoon"
+needle := afternoon
+
+fn bench {
+    poop "./build/linear {corpus} {needle}" "./build/boyer-moore {corpus} {needle}" "./build/threaded {corpus} {needle}" 
+    # |> "{corpus}-result"
+}
+
+corpuses := corpus-*
+
+for corpus in $corpuses {
+    bench
+}

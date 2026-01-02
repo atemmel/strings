@@ -2,6 +2,14 @@
 
 #include <cassert>
 #include <cstring>
+#include <mutex>
+#include <thread>
+#include <vector>
+
+template <typename T>
+using List   = std::vector<T>;
+using Thread = std::thread;
+using Mutex  = std::mutex;
 
 struct String {
     static auto of(char* ptr) -> String {
@@ -53,6 +61,6 @@ struct Optional {
         };
     }
 
-    const T value;
-    const bool exists;
+    T value;
+    bool exists;
 };
