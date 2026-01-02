@@ -1,0 +1,5 @@
+#!/bin/cherry
+
+g++ -o prog *.cpp
+
+./prog ./corpus-1
