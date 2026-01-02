@@ -4,19 +4,21 @@ import fs
 
 assert (fs'has-program g++)
 assert (fs'has-program poop)
+assert (fs'has-program mkdir)
+
+mkdir -p build/
 
 cpp-files := *.cpp
-arg-strs  := []
 
 for cpp-file in $cpp-files {
     prog-name := (slice $cpp-file 0 (- (len $cpp-file) 4))
 
     #TODO: boyer-moore dör med -Ofast, säkert undefined behaviour någonstants
-    #g++ -Ofast -o $prog-name $cpp-file
-    g++ -o $prog-name $cpp-file
+    #g++ -Ofast -o "build/{prog-name}" $cpp-file
+    g++ -o "build/{prog-name}" $cpp-file
 }
 
 #TODO: "uppackning" hade gått hårt här
 #poop ...$arg-strs
 
-poop "./linear corpus-1 afternoon" "./boyer-moore corpus-1 afternoon"
+poop "./build/linear corpus-1 afternoon" "./build/boyer-moore corpus-1 afternoon"
