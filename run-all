@@ -1,5 +1,10 @@
 #!/bin/cherry
 
+import fs
+
+assert (fs'has-program g++)
+assert (fs'has-program poop)
+
 cpp-files := *.cpp
 arg-strs  := []
 
