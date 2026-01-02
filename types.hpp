@@ -12,7 +12,7 @@ struct String {
         };
     }
 
-    auto operator[](int idx) const -> char {
+    auto operator[](int idx) const -> unsigned char {
         assert(idx >= 0);
         assert(idx < len);
         return ptr[idx];

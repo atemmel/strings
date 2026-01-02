@@ -13,9 +13,8 @@ cpp-files := *.cpp
 for cpp-file in $cpp-files {
     prog-name := (slice $cpp-file 0 (- (len $cpp-file) 4))
 
-    #TODO: boyer-moore dör med -Ofast, säkert undefined behaviour någonstants
-    #g++ -Ofast -o "build/{prog-name}" $cpp-file
-    g++ -o "build/{prog-name}" $cpp-file
+    g++ -Ofast -o "build/{prog-name}" $cpp-file
+    #g++ -o "build/{prog-name}" $cpp-file
 }
 
 #TODO: "uppackning" hade gått hårt här
