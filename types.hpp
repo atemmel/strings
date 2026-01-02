@@ -19,6 +19,20 @@ struct String {
     return ptr[idx];
   }
 
+  auto slice(int from) const -> String { return slice(from, len); }
+
+  auto slice(int from, int to) const -> String {
+    assert(from >= 0);
+    assert(from <= len);
+    assert(to >= 0);
+    assert(to <= len);
+    assert(from <= to);
+    return String{
+        .ptr = ptr + from,
+        .len = to - from,
+    };
+  }
+
   char *ptr;
   int len;
 };
